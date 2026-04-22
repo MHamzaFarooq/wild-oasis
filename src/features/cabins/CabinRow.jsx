@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import { formatCurrency } from "../../utils/helpers";
 
 const TableRow = styled.div`
   display: grid;
@@ -11,6 +13,9 @@ const TableRow = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 `;
+CabinRow.propTypes = {
+  cabin: PropTypes.object.isRequired,
+};
 
 const Img = styled.img`
   display: block;
@@ -38,3 +43,18 @@ const Discount = styled.div`
   font-weight: 500;
   color: var(--color-green-700);
 `;
+export default function CabinRow({ cabin }) {
+  return (
+    <TableRow>
+      <Img
+        src="https://pacltkczfrefcixgwiql.supabase.co/storage/v1/object/public/cabin-images/cabin-001.jpg"
+        alt={cabin.name}
+      />
+      <Cabin>{cabin.name}</Cabin>
+      <Price>{cabin.maxCapacity}</Price>
+      <Discount>{formatCurrency(cabin.regularPrice)}</Discount>
+      <div>{formatCurrency(cabin.discount)}</div>
+      <button>delete</button>
+    </TableRow>
+  );
+}
