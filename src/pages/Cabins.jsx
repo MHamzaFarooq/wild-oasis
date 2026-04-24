@@ -1,5 +1,6 @@
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
+import Button from "../ui/Button";
 
 import CabinTable from "../features/cabins/CabinTable";
 
@@ -12,6 +13,7 @@ function Cabins() {
       </Row>
       <Row>
         <CabinTable />
+        <Button>+ Add new cabin</Button>
       </Row>
     </>
   );
